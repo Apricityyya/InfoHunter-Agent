@@ -1,0 +1,7 @@
+dotenv
+feedparser
+requests
+beautifulsoup4
+openai
+chromadb
+streamlit

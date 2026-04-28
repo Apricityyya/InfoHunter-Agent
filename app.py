@@ -5,6 +5,8 @@ import streamlit as st
 # from agent import Agent
 from agent_fc import FCAgent as Agent
 from storage import ArticleStore
+from collector import fetch_all_rss
+from store_articles import store_articles
 
 
 # ============================================
@@ -30,6 +32,7 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 
+
 # ============================================
 # 侧边栏
 # ============================================
@@ -42,7 +45,33 @@ with st.sidebar:
     # TODO: 你来写（2行代码）
     count = st.session_state.agent.rag.store.get_count()
     st.metric("文章总数",count)
+    
     st.divider()    # 分隔线
+
+    # ===== 改进1: 抓取最新文章按钮 =====
+    st.subheader("📥 数据管理")
+
+    # 任务1: 写一个抓取按钮
+    # 点击后执行: 抓取 RSS → 存入向量数据库 → 显示成功提示
+    #
+    # 提示:
+    #   - if st.button("按钮文字"):  判断按钮是否被点击
+    #   - with st.spinner("提示文字"):  显示加载动画
+    #   - articles = fetch_all_rss()  抓取文章
+    #   - store = st.session_state.agent.rag.store  获取存储实例
+    #   - store_articles(articles, store)  存入向量数据库
+    #   - st.success(f"成功信息")  显示成功提示
+    #   - st.rerun()  刷新页面（更新文章数量）
+    # TODO: 你来写
+    if st.button("🔄 抓取最新文章"):
+        with st.spinner("正在抓取 RSS 文章..."):
+            articles = fetch_all_rss()
+            store = st.session_state.agent.rag.store
+            store_articles(articles,store)
+        st.success(f"抓取成功")
+        st.rerun()
+
+    st.divider()
 
     # 清空对话按钮
     if st.button("🗑️ 清空对话记录"):
@@ -51,59 +80,72 @@ with st.sidebar:
 
 
 # ============================================
-# 主界面
+# 主界面 - 用标签页切换"对话"和"文章列表"
 # ============================================
-st.title("🔍 InfoHunter Agent")
-st.caption("基于 RAG 的智能信息追踪系统 | 输入问题，Agent 会自动检索相关文章并回答")
+tab1, tab2 = st.tabs(["💬 智能问答", "📄 文章列表"])
 
 
-# ============================================
-# 显示历史对话
-# ============================================
-# 任务2: 遍历 st.session_state.chat_history，显示每条对话
-# chat_history 的结构是: [{"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}, ...]
-# 用 st.chat_message(role) 显示对话气泡
-#
-# 示例:
-#   with st.chat_message("user"):
-#       st.write("用户说的话")
-#   with st.chat_message("assistant"):
-#       st.write("AI的回答")
-#
-# TODO: 用 for 循环遍历 chat_histo
-for msg in st.session_state.chat_history:
-    role = msg.get("role","")
-    content = msg.get("content","")
-    with st.chat_message(role):
-        st.write(content)
+# ===== 标签页1: 智能问答 =====
+with tab1:
+    st.title("🔍 InfoHunter Agent")
+    st.caption("基于 RAG + Function Calling 的智能信息追踪系统")
 
+    # 显示历史对话
+    for msg in st.session_state.chat_history:
+        with st.chat_message(msg["role"]):
+            st.write(msg["content"])
 
+    # # 用户输入
+    # user_input = st.chat_input("输入你的问题...")
 
-# ============================================
-# 用户输入
-# ============================================
-user_input = st.chat_input("输入你的问题...")   # 底部输入框
+    # if user_input:
+    #     with st.chat_message("user"):
+    #         st.write(user_input)
+    #     st.session_state.chat_history.append({"role": "user", "content": user_input})
 
-if user_input:
-    # 显示用户消息
-    with st.chat_message("user"):
-        st.write(user_input)
+    #     with st.chat_message("assistant"):
+    #         with st.spinner("Agent 思考中..."):
+    #             answer = st.session_state.agent.run(user_input)
+    #         st.write(answer)
+    #     st.session_state.chat_history.append({"role": "assistant", "content": answer})
+    # 用户输入
+    user_input = st.chat_input("输入你的问题...")
 
-    # 保存用户消息到历史
-    st.session_state.chat_history.append({"role": "user", "content": user_input})
+    if user_input:
+        st.session_state.chat_history.append({"role": "user", "content": user_input})
 
-    # Agent 处理
-    with st.chat_message("assistant"):
-        # 任务3: 调用 Agent 获取回答并显示
-        #
-        # 步骤:
-        #   1. 用 with st.spinner("思考中...") 包裹调用过程（显示加载动画）
-        #   2. 在 spinner 里面调用 st.session_state.agent.run(user_input)
-        #   3. 用 st.write(answer) 显示回答
-        #   4. 把 assistant 的回答也保存到 chat_history
-        #
-        # TODO: 你来写
         with st.spinner("Agent 思考中..."):
             answer = st.session_state.agent.run(user_input)
-        st.write(answer)
-        st.session_state.chat_history.append({"role":"assistant","content":answer})
+
+        st.session_state.chat_history.append({"role": "assistant", "content": answer})
+        st.rerun()
+
+# ===== 标签页2: 文章列表 =====
+with tab2:
+    st.title("📄 文章列表")
+
+    # 任务2: 展示数据库中的所有文章
+    # 
+    # 提示:
+    #   - store = st.session_state.agent.rag.store
+    #   - count = store.get_count()
+    #   - 如果 count == 0，用 st.info("暂无文章，请先在侧边栏点击抓取") 提示
+    #   - 如果有文章，用 store.collection.get() 获取所有数据
+    #     返回值是字典: {"ids": [...], "documents": [...], "metadatas": [...]}
+    #   - 遍历 metadatas，展示每篇文章的信息
+    #   - 用 st.expander(标题) 做可折叠展示:
+    #     with st.expander(f"[来源] 标题"):
+    #         st.write(f"日期: {meta['date']}")
+    #         st.write(f"内容: {doc[:200]}...")
+    # TODO: 你来写
+    store = st.session_state.agent.rag.store
+    count = store.get_count()
+    if count==0:
+        st.info("暂无文章，请先在侧边栏点击抓取")
+    else:
+        all_data = store.collection.get()
+        for doc,meta in zip(all_data["documents"],all_data["metadatas"]):
+            with st.expander(f"[{meta.get('source','')}] {meta.get('title','')}"):
+                st.write(f"日期: {meta.get('date','')}")
+                st.write(f"内容: {doc}")
+            
