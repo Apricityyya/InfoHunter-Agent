@@ -1,0 +1,26 @@
+{
+  "topics": [
+    {
+      "name": "AI Agent开发",
+      "keywords": [
+        "AI Agent",
+        "LLM",
+        "大模型",
+        "langchain",
+        "RAG",
+        "Langchain"
+      ]
+    },
+    {
+      "name": "实习招聘",
+      "keywords": [
+        "intern",
+        "实习",
+        "招聘",
+        "校招",
+        "hiring",
+        "内推"
+      ]
+    }
+  ]
+}
