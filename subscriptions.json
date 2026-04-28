@@ -1,14 +1,37 @@
 {
   "topics": [
     {
-      "name": "AI Agent开发",
+      "name": "AI Agent开发/AI 应用开发",
       "keywords": [
         "AI Agent",
         "LLM",
+        "AI 应用开发",
         "大模型",
         "langchain",
         "RAG",
-        "Langchain"
+        "Langchain",
+        "Function Calling",
+        "Embedding",
+        "ReAct"
+      ]
+    },
+    {
+      "name": "行业动态",
+      "keywords": [
+        "开源",
+        "政策",
+        "裁员",
+        "字节",
+        "阿里",
+        "腾讯",
+        "华为",
+        "百度",
+        "小米",
+        "京东",
+        "美团",
+        "滴滴",
+        "快手",
+        "拼多多"
       ]
     },
     {
@@ -19,7 +42,13 @@
         "招聘",
         "校招",
         "hiring",
-        "内推"
+        "内推",
+        "春招",
+        "秋招",
+        "暑期实习",
+        "暑期",
+        "offer",
+        "面经"
       ]
     }
   ]

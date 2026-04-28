@@ -34,8 +34,9 @@ def store_articles(articles, store):
         content = article.get("summary","")
         source = article.get("source","")
         date = article.get("published","")
+        link = article.get("link","")
         try:
-            store.add_article(article_id,title,content,source,date)
+            store.add_article(article_id,title,content,source,date,link)
         except Exception as e:
             print(f"{article['title']}存储失败，失败原因：{e}")
     print(f"总计新存入 {store.get_count()- existing_count} 篇文章")

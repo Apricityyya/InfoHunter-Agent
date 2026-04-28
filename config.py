@@ -17,3 +17,5 @@ DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 # 使用的模型名称（可根据实际需要替换）
 MODEL_NAME = "qwen3.6-plus"
 
+# server酱密钥
+SERVER_CHAN_KEY = os.getenv("SERVER_CHAN_KEY", "")

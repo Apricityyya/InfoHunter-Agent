@@ -47,7 +47,7 @@ class ArticleStore:
         )
         return response.data[0].embedding
 
-    def add_article(self, article_id, title, content, source="", date=""):
+    def add_article(self, article_id, title, content, source="", date="",link=""):
         """
         把一篇文章存入向量数据库
 
@@ -71,7 +71,7 @@ class ArticleStore:
             ids = [article_id],
             documents = [text],
             embeddings = [vector],
-            metadatas = [{"title":title,"source":source,"date":date}],
+            metadatas = [{"title":title,"source":source,"date":date,"link":link}],
         )
 
     def search(self, query, n_results=5):

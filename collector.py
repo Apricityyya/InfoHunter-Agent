@@ -7,19 +7,39 @@ import feedparser
 # =====================配置：你想监控的RSS源 =====================
 # 每个源有一个名字和一个RSS地址
 RSS_SOURCES = [
+    # ============== 技术趋势 =================
     {
         "name":"Hacker News (科技新闻)",
         "url":"https://hnrss.org/newest?count=10&q=AI+OR+LLM+OR+agent" #count=10表示只取最新10条，测试用
 
     },
+
     {
-        "name":"MIT Technology Review (AI方向)",
+        "name": "少数派",
+        "url": "https://sspai.com/feed"
+    },
+
+    {
+        "name":"arXiv AI论文",
+        "url":"https://rss.arxiv.org/rss/cs.AI"
+    },
+
+    {
+        "name":"36kr 快讯",
+        "url":"https://36kr.com/feed"
+    },
+    {
+        "name":"MIT Technology Review",
         "url":"https://www.technologyreview.com/feed"
     },
     {
-        "name": "arXiv AI论文",
-        "url": "https://rss.arxiv.org/rss/cs.AI"
+        "name":"开源中国",
+        "url":"https://www.oschina.net/news/rss"
     },
+    {
+        "name":"V2EX 最热",
+        "url":"https://www.v2ex.com/index.xml"
+    }
 ]
 
 def fetch_rss(source):

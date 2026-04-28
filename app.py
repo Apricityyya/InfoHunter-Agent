@@ -64,12 +64,48 @@ with st.sidebar:
     #   - st.rerun()  刷新页面（更新文章数量）
     # TODO: 你来写
     if st.button("🔄 抓取最新文章"):
-        with st.spinner("正在抓取 RSS 文章..."):
+        with st.spinner("正在抓取并过滤文章..."):
+            # 第1步：抓取
             articles = fetch_all_rss()
+            
+            # 第2步：关键词过滤（只用粗筛，不调 LLM，省钱省时间）
+            from subscription import load_subscriptions, keyword_filter
+            topics = load_subscriptions()["topics"]
+            
+            filtered = []
+            for article in articles:
+                matched = keyword_filter(article, topics)
+                if matched:
+                    article["matched_topics"] = matched
+                    filtered.append(article)
+            
+            # 第3步：只把通过过滤的文章存入向量库
             store = st.session_state.agent.rag.store
-            store_articles(articles,store)
-        st.success(f"抓取成功")
+            store_articles(filtered, store)
+    
+        st.success(f"抓取 {len(articles)} 篇，过滤后保留 {len(filtered)} 篇")
         st.rerun()
+    
+    if st.button("📨 推送简报到微信"):
+        with st.spinner("正在生成并推送简报..."):
+            # 从向量库取所有文章 → 调用 push_daily_brief → 显示成功
+            store = st.session_state.agent.rag.store
+        count = store.get_count()
+        if count == 0:
+            st.warning("数据库里没有文章，请先抓取")
+        else:
+            all_data = store.collection.get()
+            # 拼接简报内容
+            content = f"共 {count} 篇文章\n\n"
+            for meta in all_data["metadatas"]:
+                title = meta.get('title', '')
+                source = meta.get('source', '')
+                link = meta.get('link', '')
+                content += f"- [{title}]({link}) ({source})\n"
+            # 推送
+            from notifier import push_to_wechat
+            push_to_wechat("📢 InfoHunter 简报", content)
+            st.success("推送成功，请查看微信")
 
     st.divider()
 
