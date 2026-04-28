@@ -15,8 +15,8 @@ RSS_SOURCES = [
     },
 
     {
-        "name": "少数派",
-        "url": "https://sspai.com/feed"
+        "name": "CSDN博客-程序员小橙",
+        "url": "https://blog.csdn.net/m0_64363449/rss/list"
     },
 
     {
