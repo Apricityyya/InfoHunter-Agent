@@ -99,6 +99,51 @@ class ArticleStore:
     def get_count(self):
         """返回数据库中的文章总数"""
         return self.collection.count()
+    
+
+    def chunk_by_length(self,text,chunk_size=200):
+        """
+        固定长度分块，默认是200
+
+        参数：
+            text: 原始文本
+            chunk_size: 每块的字符数
+
+        返回：
+            字符串列表，每个元素是一个chunk
+        
+        逻辑：
+            从头开始，每chunk_size个字符切一块
+            最后不足chunk_size的部分也保留
+
+        提示：用切片 text[start:end]来截取
+        """
+        chunks = []
+        for i in range(0,len(text),chunk_size): # range(起点, 终点, 步长)
+            chunks.append(text[i:i+chunk_size]) # 切片自动处理最后不足一块的情况
+        return chunks
+    
+
+    def chunk_by_paragraph(self,text):
+        """
+        按段落分块
+
+        参数：
+            text: 原始文本
+
+        返回：
+            字符串列表，每个元素是一个段落
+
+        逻辑：
+            按换行符切分，过滤掉空行
+
+        提示：
+            - text.split("\n")按换行符切分
+            - 过滤掉空字符串和纯空格的行
+        """
+        chunks = [line.strip() for line in text.split("\n") if line.strip()]
+        return chunks
+        
 
 
 # ============================================

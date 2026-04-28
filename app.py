@@ -2,7 +2,8 @@
 InfoHunter - Streamlit 前端界面
 """
 import streamlit as st
-from agent import Agent
+# from agent import Agent
+from agent_fc import FCAgent as Agent
 from storage import ArticleStore
 
 
