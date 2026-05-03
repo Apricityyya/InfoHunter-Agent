@@ -27,8 +27,11 @@ def store_articles(articles, store):
     existing_count = store.get_count()
     print(f"数据库已有 {existing_count} 条记录")
 
-    # TODO: 你来写循环存入的逻辑
     for i,article in enumerate(articles):
+        link = article.get("link","")
+        if store.article_exists(link):
+            print(f" 跳过(已存在): {article.get('link','')}")
+            continue
         article_id = str(existing_count + i + 1)
         title = article.get("title","无标题")
         content = article.get("summary","")

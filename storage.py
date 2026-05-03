@@ -85,10 +85,7 @@ class ArticleStore:
         返回:
             搜索结果（ChromaDB 返回的字典）
         """
-        # TODO:
-        # 第1步: 把 query 变成向量
-        # 第2步: 调用 self.collection.query(query_embeddings=[向量], n_results=n_results)
-        # 第3步: return 结果
+        
         query_vector = self.get_embedding(query)
         results = self.collection.query(
             query_embeddings=[query_vector],
@@ -143,6 +140,17 @@ class ArticleStore:
         """
         chunks = [line.strip() for line in text.split("\n") if line.strip()]
         return chunks
+    
+    #去重，解决重复存入相同文章
+    def article_exists(self,link):
+        """检查文章是否已存在(用链接判断)"""
+        if not link:
+            return False
+        try:
+            results = self.collection.get(where={"link":link})
+            return len(results["ids"])>0
+        except:
+            return False
         
 
 

@@ -1,0 +1,57 @@
+{
+  "total": 5,
+  "correct": 5,
+  "accuracy": 1.0,
+  "details": [
+    {
+      "id": "strong_match_1",
+      "description": "AI Agent简历 vs AI Agent岗 - 强匹配",
+      "expected_range": [
+        75,
+        100
+      ],
+      "actual_score": 97,
+      "in_range": true
+    },
+    {
+      "id": "strong_match_2",
+      "description": "Java后端简历 vs Java后端岗 - 强匹配",
+      "expected_range": [
+        75,
+        100
+      ],
+      "actual_score": 95,
+      "in_range": true
+    },
+    {
+      "id": "weak_match_1",
+      "description": "前端简历 vs 算法岗 - 弱匹配",
+      "expected_range": [
+        0,
+        50
+      ],
+      "actual_score": 15,
+      "in_range": true
+    },
+    {
+      "id": "weak_match_2",
+      "description": "市场营销简历 vs 后端岗 - 弱匹配",
+      "expected_range": [
+        0,
+        40
+      ],
+      "actual_score": 5,
+      "in_range": true
+    },
+    {
+      "id": "medium_match_1",
+      "description": "数据分析简历 vs 算法岗 - 中等匹配",
+      "expected_range": [
+        40,
+        75
+      ],
+      "actual_score": 55,
+      "in_range": true
+    }
+  ]
+}

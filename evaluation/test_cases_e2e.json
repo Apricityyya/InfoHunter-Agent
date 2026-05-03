@@ -1,0 +1,39 @@
+{
+  "test_cases": [
+    {
+      "id": "strong_match_1",
+      "description": "AI Agent简历 vs AI Agent岗 - 强匹配",
+      "expected_range": [75, 100],
+      "resume": "王莹，同济大学计算机本科。技能：Python、RAG、Agent、Function Calling、LangGraph、MCP。项目：InfoHunter（基于RAG+Agent的求职助手系统，部署到阿里云ECS）、EcoAgent（云端协同Agent框架）。",
+      "jd": "AI Agent 开发实习生。要求：熟悉 Python、LangGraph、RAG、Function Calling、MCP；有 Agent 项目经验。"
+    },
+    {
+      "id": "strong_match_2",
+      "description": "Java后端简历 vs Java后端岗 - 强匹配",
+      "expected_range": [75, 100],
+      "resume": "李明，复旦大学软件工程硕士。技能：Java、Spring Boot、MySQL、Redis、Kafka、Docker、Kubernetes。项目：电商秒杀系统、订单系统重构。实习：腾讯Java后端实习6个月。",
+      "jd": "Java 后端工程师。要求：Java、Spring 生态、MySQL；有微服务和高并发经验。"
+    },
+    {
+      "id": "weak_match_1",
+      "description": "前端简历 vs 算法岗 - 弱匹配",
+      "expected_range": [0, 50],
+      "resume": "张三，北京邮电大学本科。技能：HTML、CSS、JavaScript、Vue、React。项目：电商网站前端、企业官网。",
+      "jd": "算法工程师。要求：精通机器学习算法；熟悉 PyTorch/TensorFlow；有 NLP 或 CV 项目经验。"
+    },
+    {
+      "id": "weak_match_2",
+      "description": "市场营销简历 vs 后端岗 - 弱匹配",
+      "expected_range": [0, 40],
+      "resume": "李华，市场营销专业。技能：策划、文案、社交媒体运营。经历：某品牌新媒体运营两年。",
+      "jd": "Java 后端开发工程师。要求：Java、Spring、MySQL；3年以上后端经验。"
+    },
+    {
+      "id": "medium_match_1",
+      "description": "数据分析简历 vs 算法岗 - 中等匹配",
+      "expected_range": [40, 75],
+      "resume": "王芳，统计学硕士。技能：Python、Pandas、SQL、Tableau、机器学习基础。项目：用户行为分析、销售预测模型（用 sklearn）。",
+      "jd": "算法工程师。要求：Python、机器学习；熟悉 PyTorch；有深度学习项目经验。"
+    }
+  ]
+}

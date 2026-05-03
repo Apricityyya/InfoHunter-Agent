@@ -1,0 +1,117 @@
+{
+  "tool_stats": {
+    "parse_resume": {
+      "success": 5,
+      "total": 5
+    },
+    "parse_jd": {
+      "success": 5,
+      "total": 5
+    },
+    "compute_match_score": {
+      "success": 5,
+      "total": 5
+    },
+    "generate_gap_report": {
+      "success": 5,
+      "total": 5
+    }
+  },
+  "details": [
+    {
+      "id": "normal_full_1",
+      "parse_resume": {
+        "success": true,
+        "msg": "OK"
+      },
+      "parse_jd": {
+        "success": true,
+        "msg": "OK"
+      },
+      "compute_match_score": {
+        "success": true,
+        "msg": "OK"
+      },
+      "generate_gap_report": {
+        "success": true,
+        "msg": "OK"
+      }
+    },
+    {
+      "id": "normal_full_2",
+      "parse_resume": {
+        "success": true,
+        "msg": "OK"
+      },
+      "parse_jd": {
+        "success": true,
+        "msg": "OK"
+      },
+      "compute_match_score": {
+        "success": true,
+        "msg": "OK"
+      },
+      "generate_gap_report": {
+        "success": true,
+        "msg": "OK"
+      }
+    },
+    {
+      "id": "minimal_resume",
+      "parse_resume": {
+        "success": true,
+        "msg": "OK"
+      },
+      "parse_jd": {
+        "success": true,
+        "msg": "OK"
+      },
+      "compute_match_score": {
+        "success": true,
+        "msg": "OK"
+      },
+      "generate_gap_report": {
+        "success": true,
+        "msg": "OK"
+      }
+    },
+    {
+      "id": "minimal_jd",
+      "parse_resume": {
+        "success": true,
+        "msg": "OK"
+      },
+      "parse_jd": {
+        "success": true,
+        "msg": "OK"
+      },
+      "compute_match_score": {
+        "success": true,
+        "msg": "OK"
+      },
+      "generate_gap_report": {
+        "success": true,
+        "msg": "OK"
+      }
+    },
+    {
+      "id": "irrelevant_resume",
+      "parse_resume": {
+        "success": true,
+        "msg": "OK"
+      },
+      "parse_jd": {
+        "success": true,
+        "msg": "OK"
+      },
+      "compute_match_score": {
+        "success": true,
+        "msg": "OK"
+      },
+      "generate_gap_report": {
+        "success": true,
+        "msg": "OK"
+      }
+    }
+  ]
+}

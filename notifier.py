@@ -23,7 +23,6 @@ def push_to_wechat(title,content=""):
     # 3. 用 requests.post(url, data={"title": title, "desp": content}) 发送
     # 4. 用 try/except 包裹，失败时打印错误并返回 False
     # 5. 成功时返回 True
-    # TODO: 你来写
     if not SERVER_CHAN_KEY:
         print(f"Server酱未开通")
         return False

@@ -1,0 +1,29 @@
+{
+  "total": 40,
+  "correct": 38,
+  "accuracy": 0.95,
+  "confusion": {
+    "clarify_correct": 3,
+    "clarify_missed": 2,
+    "clarify_wrongly": 0,
+    "route_wrong": 0
+  },
+  "failed_cases": [
+    {
+      "query": "了解一下我自己",
+      "expected_route": "any",
+      "expected_clarify": true,
+      "actual_route": "chat",
+      "actual_clarify": false,
+      "confidence": 0.85
+    },
+    {
+      "query": "我能做你这种工作吗",
+      "expected_route": "any",
+      "expected_clarify": true,
+      "actual_route": "eval",
+      "actual_clarify": false,
+      "confidence": 0.95
+    }
+  ]
+}

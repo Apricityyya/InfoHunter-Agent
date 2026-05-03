@@ -1,0 +1,34 @@
+{
+  "test_cases": [
+    {
+      "id": "normal_full_1",
+      "description": "正常完整简历+JD",
+      "resume": "王莹，同济大学计算机科学与技术专业本科在读。技能：掌握 Python、了解 C++ 基础语法；熟悉 RAG、Agent、Function Calling 等大模型应用范式。项目：- InfoHunter：基于 RAG+Agent 的智能信息追踪系统。- EcoAgent：复现 AAAI 2026 论文。经历：曾在火箭军服役两年。英语：CET 4/6。",
+      "jd": "岗位：AI Agent 开发实习生。职责：参与 AI Agent 系统的设计与研发；推动 Agent 在业务场景的落地。要求：熟悉 Python，有 LangChain/LangGraph 使用经验；了解 RAG、Function Calling、MCP 等技术。"
+    },
+    {
+      "id": "normal_full_2",
+      "description": "另一个正常完整case-后端岗",
+      "resume": "李明，复旦大学软件工程专业硕士。技能：精通 Java、Spring Boot、MySQL、Redis；熟悉微服务架构、Docker、Kubernetes。项目：电商订单系统重构、秒杀系统设计。实习：腾讯后端开发实习6个月。",
+      "jd": "岗位：Java 后端工程师。要求：3年以上 Java 开发经验；熟悉 Spring 生态、分布式系统设计；有高并发系统经验者优先。"
+    },
+    {
+      "id": "minimal_resume",
+      "description": "极简短简历（信息缺失）",
+      "resume": "张三，本科。会一点编程。",
+      "jd": "岗位：算法工程师。要求：熟悉机器学习算法、Python、深度学习框架。"
+    },
+    {
+      "id": "minimal_jd",
+      "description": "极简短JD",
+      "resume": "王莹，同济大学计算机本科。掌握 Python、RAG、Agent 开发。",
+      "jd": "招程序员"
+    },
+    {
+      "id": "irrelevant_resume",
+      "description": "无关内容（菜谱当简历）",
+      "resume": "番茄炒蛋的做法：1. 番茄切块 2. 鸡蛋打散 3. 热油下锅 4. 翻炒3分钟 5. 加盐出锅。",
+      "jd": "岗位：AI 工程师。要求：Python、机器学习。"
+    }
+  ]
+}

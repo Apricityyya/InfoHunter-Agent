@@ -3,7 +3,7 @@ import feedparser
 
 sources = [
     ("CSDN","https://blog.csdn.net/m0_64363449/rss/list"),
-    ("豆瓣women in Tech","https://rsshub.app/douban/group/704536")
+    ("豆瓣小组","https://rsshub.app/douban/group/729914/elite")
 ]
 
 for name, url in sources:

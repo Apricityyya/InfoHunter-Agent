@@ -1,0 +1,203 @@
+{
+  "test_cases": [
+    {
+      "query": "最近有什么 AI 新闻",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "字节有 AI Agent 实习吗",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "RAG 最近有什么新进展",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "查一下大模型相关的内容",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "最近 AI 圈有啥动静",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "知识库里有什么内容",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "有没有关于 LangChain 的文章",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "找一篇关于 Embedding 的文章",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "数据库里有多少篇文章",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "搜索一下 Function Calling 相关的内容",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+
+    {
+      "query": "评估我的简历",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我适不适合腾讯算法岗",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "帮我看看简历有什么问题",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我的简历能进大厂吗",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我跟这个岗位匹配度怎么样",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我的技能够不够",
+      "expected_route": "any",
+      "expected_clarify": true
+    },
+    {
+      "query": "帮我分析一下我的简历优劣",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "看看这个 JD 我能投吗",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我应该怎么改简历",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "我的项目经历够吗",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+
+    {
+      "query": "你好",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "你是谁",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "你能做什么",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "今天天气真好",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "讲个笑话",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "你叫什么名字",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "今晚吃什么",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "1+1等于几",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "你能听懂中文吗",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "我有点累",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+
+    {
+      "query": "我想看看我现在的水平",
+      "expected_route": "any",
+      "expected_clarify": true
+    },
+    {
+      "query": "了解一下我自己",
+      "expected_route": "any",
+      "expected_clarify": true
+    },
+    {
+      "query": "最近怎么样",
+      "expected_route": "chat",
+      "expected_clarify": false
+    },
+    {
+      "query": "AI Agent 是什么",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "我能做你这种工作吗",
+      "expected_route": "any",
+      "expected_clarify": true
+    },
+    {
+      "query": "字节怎么样",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "推荐一些 LLM 学习资料",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    {
+      "query": "你觉得我能进字节吗",
+      "expected_route": "eval",
+      "expected_clarify": false
+    },
+    {
+      "query": "现在 RAG 还火吗",
+      "expected_route": "info",
+      "expected_clarify": false
+    },
+    { "query": "帮我", "expected_route": "any", "expected_clarify": true }
+  ]
+}
